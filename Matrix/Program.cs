@@ -48,7 +48,107 @@ namespace Matrix
 
 
             // Byt ut detta anropet med dina matrisvärden, så kommer programmet att rita ut dem istället :)
-            Draw2x2Matrix(1.01f, 0.00f, 0.00f, 1);
+
+
+
+
+            // Värden
+            float a00 = 1, a01 = 2, a10 = 3, a11 = 4;
+            float b00 = 3, b01 = 4, b10 = 5, b11 = 6;
+            float c00, c01, c10, c11;
+            float radians = 3.14f;
+
+            // Addition
+            c00 = a00 + b00;
+            c01 = a01 + b01;
+            c10 = a10 + b10;
+            c11 = a11 + b11;
+
+            MatrixChecker.CheckAddition(a00, a01, a10, a11, b00, b01, b10, b11, c00, c01, c10, c11);
+            Draw2x2Matrix(c00, c01, c10, c11);
+
+
+            // Rotationsmatris? och ja jag vet att denna koden förmodligen suger, men den funkar(tror jag)!
+            a00 *= (float)Math.Cos(radians);
+            a01 *= (float)Math.Sin(radians);
+            a10 *= (float)Math.Sin(-radians);
+            a11 *= (float)Math.Cos(radians);
+
+            Console.Write("\n");
+            MatrixChecker.CheckRotationMatrix(radians, a00, a01, a10, a11);
+            Draw2x2Matrix(a00, a01, a10, a11);
+
+
+            // Multiplikation
+            //värden
+            a00 = 1;
+            a01 = 2;
+            a10 = 3;
+            a11 = 4;
+
+            b00 = 5;
+            b01 = 6;
+            b10 = 7;
+            b11 = 8;
+
+            //matte
+            c00 = a00 * b00 + a01 * b10;
+            c01 = a00 * b01 + a01 * b11;
+            c10 = a10 * b00 + a11 * b10;
+            c11 = a10 * b01 + a11 * b11;
+
+            Console.Write("\n");
+            MatrixChecker.CheckMultiplication(a00, a01, a10, a11, b00, b01, b10, b11, c00, c01, c10, c11);
+            Draw2x2Matrix(c00, c01, c10, c11);
+
+
+
+
+            // Rotationsmatris 2.0 Electric Bogaloo
+            
+            Console.Write("\nTryck Enter för att fortsätta till extra uppgift.\n");
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.Write("Nu får du skriva in fyra värden. Vänligen skriv första\n");
+            float.TryParse(Console.ReadLine(), out a00);
+            Console.Write("\nVänligen skriv andra\n");
+            float.TryParse(Console.ReadLine(), out a01);
+            Console.Write("\nVänligen skriv tredje\n");
+            float.TryParse(Console.ReadLine(), out a10);
+            Console.Write("\nVänligen skriv fjärde\n");
+            float.TryParse(Console.ReadLine(), out a11);
+
+            Console.Write("\nNu kommer andra rotationsmatrisen. Vänligen skriv första värdet\n");
+            float.TryParse(Console.ReadLine(), out b00);
+            Console.Write("\nVänligen skriv andra\n");
+            float.TryParse(Console.ReadLine(), out b01);
+            Console.Write("\nVänligen skriv tredje\n");
+            float.TryParse(Console.ReadLine(), out b10);
+            Console.Write("\nVänligen skriv fjärde\n");
+            float.TryParse(Console.ReadLine(), out b11);
+            Console.Clear();
+
+            //Rotationsmatris-delen
+            a00 *= (float)Math.Cos(radians);
+            a01 *= (float)Math.Sin(radians);
+            a10 *= (float)Math.Sin(-radians);
+            a11 *= (float)Math.Cos(radians);
+
+            b00 *= (float)Math.Cos(radians);
+            b01 *= (float)Math.Sin(radians);
+            b10 *= (float)Math.Sin(-radians);
+            b11 *= (float)Math.Cos(radians);
+
+            //Multiplikation
+            c00 = a00 * b00 + a01 * b10;
+            c01 = a00 * b01 + a01 * b11;
+            c10 = a10 * b00 + a11 * b10;
+            c11 = a10 * b01 + a11 * b11;
+
+            //Rita matris
+            Console.Write("\n");
+            Draw2x2Matrix(c00, c01, c10, c11);
 
 
 
