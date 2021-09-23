@@ -110,6 +110,8 @@ namespace Matrix
             Console.ReadKey();
             Console.Clear();
 
+            float radians2;
+
             Console.Write("Nu får du skriva in fyra värden. Vänligen skriv första\n");
             float.TryParse(Console.ReadLine(), out a00);
             Console.Write("\nVänligen skriv andra\n");
@@ -118,6 +120,8 @@ namespace Matrix
             float.TryParse(Console.ReadLine(), out a10);
             Console.Write("\nVänligen skriv fjärde\n");
             float.TryParse(Console.ReadLine(), out a11);
+            Console.Write("\nVänligen skriv radians\n");
+            float.TryParse(Console.ReadLine(), out radians);
 
             Console.Write("\nNu kommer andra rotationsmatrisen. Vänligen skriv första värdet\n");
             float.TryParse(Console.ReadLine(), out b00);
@@ -127,6 +131,8 @@ namespace Matrix
             float.TryParse(Console.ReadLine(), out b10);
             Console.Write("\nVänligen skriv fjärde\n");
             float.TryParse(Console.ReadLine(), out b11);
+            Console.Write("\nVänligen skriv radians för denna matris\n");
+            float.TryParse(Console.ReadLine(), out radians2);
             Console.Clear();
 
             //Rotationsmatris-delen
@@ -135,10 +141,10 @@ namespace Matrix
             a10 *= (float)Math.Sin(-radians);
             a11 *= (float)Math.Cos(radians);
 
-            b00 *= (float)Math.Cos(radians);
-            b01 *= (float)Math.Sin(radians);
-            b10 *= (float)Math.Sin(-radians);
-            b11 *= (float)Math.Cos(radians);
+            b00 *= (float)Math.Cos(radians2);
+            b01 *= (float)Math.Sin(radians2);
+            b10 *= (float)Math.Sin(-radians2);
+            b11 *= (float)Math.Cos(radians2);
 
             //Multiplikation
             c00 = a00 * b00 + a01 * b10;
